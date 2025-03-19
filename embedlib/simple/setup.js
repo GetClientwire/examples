@@ -11,9 +11,7 @@ $(document).ready(function () {
     const password = $('#password').val().trim();
 
     if (!tenantId || !email || !password) {
-      $('#log').append(
-        '<li>Please enter a tenant ID, e-mail and password.</li>'
-      );
+      $('#log').append('<li>Please enter a tenant ID, e-mail and password.</li>');
       return;
     }
 
@@ -21,7 +19,7 @@ $(document).ready(function () {
   });
 
   // Update the conversation IDs in the CRM table when the input fields change
-  $('#conversation_id_1, #conversation_id_2').on('input', function() {
+  $('#conversation_id_1, #conversation_id_2').on('input', function () {
     updateConversationIds();
   });
 
@@ -33,15 +31,14 @@ $(document).ready(function () {
 function updateConversationIds() {
   const conversationId1 = $('#conversation_id_1').val().trim() || 'Enter an ID above';
   const conversationId2 = $('#conversation_id_2').val().trim() || 'Enter an ID above';
-  
+
   // Update the case IDs displayed in the table
   $('.case-id-1').text(conversationId1);
   $('.case-id-2').text(conversationId2);
-  
+
   // Update the onclick attributes of the Chat buttons
   $('#chat-button-1').attr('onclick', `yourFrontendsOpenChatFunction('${conversationId1}')`);
   $('#chat-button-2').attr('onclick', `yourFrontendsOpenChatFunction('${conversationId2}')`);
-  
+
   $('#log').append(`<li>Updated conversation IDs: ${conversationId1}, ${conversationId2}</li>`);
 }
-

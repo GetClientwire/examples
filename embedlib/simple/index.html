@@ -64,6 +64,32 @@
       .close-button:hover {
         opacity: 0.8;
       }
+
+      #setupBtn .loader {
+        display: none;
+      }
+
+      #setupBtn:disabled .loader {
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-right: 2px;
+        border: 2px solid #0071bb;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+      }
     </style>
     <!-- The Clientwire embed library you find right above of the </body> tag. It cannot be in the header. -->
   </head>
@@ -101,7 +127,10 @@
         </div>
 
         <div class="setup-row button-row">
-          <button id="setupBtn">Setup</button>
+          <button id="setupBtn">
+            <span class="loader"></span>
+            Setup
+          </button>
         </div>
       </div>
 

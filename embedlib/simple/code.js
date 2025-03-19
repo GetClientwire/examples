@@ -4,7 +4,7 @@
 
 // This is the API endpoint, usually you want to run this example
 // against our production API.
-const API_BASE_URL = "https://api.int.clientwire.net";
+const API_BASE_URL = 'https://api.int.clientwire.net';
 
 // The conversation type to use through this example.
 // You would use this value in your backend to create a conversation.
@@ -19,7 +19,12 @@ let clientwire = null;
 // clicks on the Chat button of a case in your system.
 window.yourFrontendsOpenChatFunction = function (conversationId) {
   // Check if a valid conversation ID has been entered
-  if (!conversationId || conversationId === 'Enter an ID above' || conversationId === 'conversation_id_1' || conversationId === 'conversation_id_2') {
+  if (
+    !conversationId ||
+    conversationId === 'Enter an ID above' ||
+    conversationId === 'conversation_id_1' ||
+    conversationId === 'conversation_id_2'
+  ) {
     alert('Please enter a valid Conversation ID first!');
     $('#log').append(`<li>Chat attempted without a valid Conversation ID</li>`);
     return;
